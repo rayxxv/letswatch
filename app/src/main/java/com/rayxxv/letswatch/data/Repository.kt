@@ -18,6 +18,7 @@ class Repository(
     suspend fun getSeriesDetail(seriesId: Int) = apiHelper.getSeriesDetail(seriesId)
 
     // DataStore
+    suspend fun setNama(user: User) =DataStore.setNama(user)
     suspend fun setUserPref(userEntity: User) = DataStore.setUser(userEntity)
     suspend fun getUserPref(): Flow<User> = DataStore.getUser()
     suspend fun deleteUserPref() = DataStore.deleteUser()

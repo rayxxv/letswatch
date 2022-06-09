@@ -22,6 +22,12 @@ class LoginViewModel(private val repository: Repository): ViewModel() {
         }
     }
 
+    fun setNamaPreference(user: User){
+        viewModelScope.launch {
+            repository.setNama(user)
+        }
+    }
+
     fun getUserPref(){
         viewModelScope.launch {
             repository.getUserPref().collect{

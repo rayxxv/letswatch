@@ -39,6 +39,12 @@ class DataStoreManager(private val context: Context) {
         }
     }
 
+    suspend fun setNama(user: User){
+        context.userDataStore.edit {
+            it[USERNAME_KEY] = user.username
+        }
+    }
+
     fun getUser(): Flow<User> {
         return context.userDataStore.data.map {
             User(
