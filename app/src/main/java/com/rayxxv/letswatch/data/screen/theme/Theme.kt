@@ -16,9 +16,9 @@ import androidx.core.view.ViewCompat
 
 
 private val DarkColorPalette = darkColors(
-    primary =   BLUE900,
+    primary =   Pink,
     primaryVariant = BLUE950,
-    secondary = Pink,
+    secondary = Blue500,
     secondaryVariant = CYAN800,
     background = BLUEGREY900,
     surface = BLUEGREY800,
@@ -31,9 +31,9 @@ private val DarkColorPalette = darkColors(
 )
 
 private val LightColorPalette = lightColors(
-    primary =   Blue500,
+    primary =   Pink,
     primaryVariant = BLUE800,
-    secondary = Pink,
+    secondary = Blue500,
     secondaryVariant = CYAN700,
     background = LIGHTBLUE50,
     surface = Color.White,
