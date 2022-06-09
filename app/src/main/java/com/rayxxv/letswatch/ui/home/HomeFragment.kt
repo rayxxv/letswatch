@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.rayxxv.letswatch.R
 import com.rayxxv.letswatch.data.Status
 import com.rayxxv.letswatch.data.pojo.Movie
 import com.rayxxv.letswatch.data.pojo.ResultX
@@ -32,7 +33,9 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
+        binding.btnProfile.setOnClickListener{
+            findNavController().navigate(R.id.action_menuFragment_to_profileFragment)
+        }
         viewModel.movies.observe(viewLifecycleOwner){ resource ->
             when (resource.status){
                 Status.LOADING -> {

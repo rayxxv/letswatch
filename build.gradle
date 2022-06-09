@@ -5,6 +5,9 @@ buildscript {
         def nav_version = "2.4.2"
         classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version"
     }
+    ext {
+        compose_version = '1.2.0-beta02'
+    }
 }
 plugins {
     id 'com.android.application' version '7.1.2' apply false
