@@ -9,6 +9,7 @@ class DatabaseHelper(private val favoriteDao: FavoriteDao, private val userDao: 
 
     suspend fun getALlUser() = userDao.getUser()
     suspend fun insertUser(user: User) = userDao.addUser(user)
+    suspend fun getUserr(username: String): User = userDao.getUserr(username)
     suspend fun loginUser(username: String, password: String) = userDao.login(username, password)
-    suspend fun updateUser(user: User) = userDao.updateUser(user)
+    suspend fun updateUser(user: User):Int = userDao.updateUser(user)
 }

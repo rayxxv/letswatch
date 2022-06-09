@@ -44,7 +44,7 @@ import java.io.IOException
 import java.io.OutputStream
 import java.util.*
 
-class ProfileFragment : DialogFragment() {
+class ProfileFragment : Fragment() {
     private var _binding: FragmentProfileBinding?= null
     private val binding get() = _binding!!
     private lateinit var pref: DataStoreManager
@@ -84,12 +84,18 @@ class ProfileFragment : DialogFragment() {
                 imageUri.toString()
             )
             lifecycleScope.launch(Dispatchers.IO) {
-                val result = profileViewModel.updateUser(user)
-                runBlocking(Dispatchers.Main) {
-                    if (result != null){
-                        Toast.makeText(requireContext(), "Profile berhasil diupdate", Toast.LENGTH_SHORT).show()
-                    }else{
-                        Toast.makeText(requireContext(), "Profile gagal diupdate", Toast.LENGTH_SHORT).show()
+                profileViewModel.updateUser(user)
+                profileViewModel.update.observe(viewLifecycleOwner) {
+                    if (it != null) {
+                        if (it != 0) {
+                            Toast.makeText(
+                                requireContext(), "User berhasil diupdate",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        } else {
+                            Toast.makeText(requireContext(), "User gagal diupdate", Toast.LENGTH_SHORT)
+                                .show()
+                        }
                     }
                 }
             }

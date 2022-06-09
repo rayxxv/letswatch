@@ -48,7 +48,6 @@ import com.rayxxv.letswatch.R
 import com.rayxxv.letswatch.data.local.DataStoreManager.Companion.DEFAULT_ID
 import com.rayxxv.letswatch.data.screen.components.RoundedButton
 import com.rayxxv.letswatch.data.screen.theme.LetsWatchTheme
-import com.rayxxv.letswatch.databinding.FragmentLoginBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class LoginFragment : Fragment() {

@@ -27,8 +27,10 @@ class Repository(
     suspend fun getAllUser() = databaseHelper.getALlUser()
     suspend fun insertUser(user: User) = databaseHelper.insertUser(user)
     suspend fun loginUser(username: String, password: String) = databaseHelper.loginUser(username, password)
-    suspend fun updateUser(user: User) = databaseHelper.updateUser(user)
-
+    suspend fun updateUser(user: User): Int = databaseHelper.updateUser(user)
+    suspend fun getUserr(username: String): User {
+        return databaseHelper.getUserr(username)
+    }
     //Favourite
     fun getAllFav() = databaseHelper.getAllFav()
     suspend fun getFavorite(id: Int) =databaseHelper.getFavorite(id)

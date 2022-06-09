@@ -11,6 +11,9 @@ interface UserDao {
     @Query("SELECT * FROM user where username= :username AND password= :password ")
     suspend fun login(username: String, password: String): User
 
+    @Query("SELECT * FROM User WHERE username like :username")
+    suspend fun getUserr(username: String): User
+
     @Query("SELECT * FROM User")
     suspend fun getUser(): User
 
@@ -18,6 +21,6 @@ interface UserDao {
     suspend fun addUser(user: User)
 
     @Update
-    suspend fun updateUser(user: User)
+    suspend fun updateUser(user: User): Int
 
 }

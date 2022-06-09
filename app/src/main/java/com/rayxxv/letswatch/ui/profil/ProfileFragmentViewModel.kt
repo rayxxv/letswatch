@@ -11,6 +11,8 @@ import kotlinx.coroutines.launch
 class ProfileFragmentViewModel ( private val repository: Repository): ViewModel(){
     private val _dataUserPref = MutableLiveData<User>()
     val dataUserPref : LiveData<User> get() = _dataUserPref
+    private val _update : MutableLiveData<Int> = MutableLiveData()
+    val update : LiveData<Int> get() = _update
 
     fun getUserPref(){
         viewModelScope.launch {
@@ -22,7 +24,7 @@ class ProfileFragmentViewModel ( private val repository: Repository): ViewModel(
 
     fun updateUser(userEntity: User){
         viewModelScope.launch {
-            repository.updateUser(userEntity)
+            _update.value = repository.updateUser(userEntity)
         }
     }
 

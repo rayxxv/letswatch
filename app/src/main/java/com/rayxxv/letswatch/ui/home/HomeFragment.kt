@@ -7,9 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModel
 import androidx.navigation.fragment.findNavController
 import com.rayxxv.letswatch.R
 import com.rayxxv.letswatch.data.Status
+import com.rayxxv.letswatch.data.local.User
 import com.rayxxv.letswatch.data.pojo.Movie
 import com.rayxxv.letswatch.data.pojo.ResultX
 import com.rayxxv.letswatch.databinding.FragmentHomeBinding
@@ -34,7 +36,7 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.btnProfile.setOnClickListener{
-            findNavController().navigate(R.id.action_menuFragment_to_profileFragment)
+            findNavController().navigate(R.id.action_menuFragment_to_profileFragment2)
         }
         viewModel.movies.observe(viewLifecycleOwner){ resource ->
             when (resource.status){
@@ -75,6 +77,24 @@ class HomeFragment : Fragment() {
             }
         }
         viewModel.getAllPopularSeries()
+    }
+    private fun updateUser(){
+        binding?.btnProfile.setOnClickListener {
+            viewModel.getUser(binding?.tvJudul?.text.toString())
+            viewModel.getDataUser.observe(viewLifecycleOwner) {
+                if (it != null) {
+                    val user = User(
+                        it.id,
+                        it.username,
+                        it.email,
+                        it.password,
+                        it.uri
+                    )
+                    val navigateUpdate = HomeFragmentDirections.actionMenuFragmentToProfileFragment(user)
+                    findNavController().navigate(navigateUpdate)
+                }
+            }
+        }
     }
     private fun showListMovie(data: List<Movie>?) {
         val adapter = MoviesAdapter(object : MoviesAdapter.OnClickListener {

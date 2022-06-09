@@ -73,7 +73,7 @@
             app:argType="integer"
             android:defaultValue="0" />
     </fragment>
-    <dialog
+    <fragment
         android:id="@+id/profileFragment"
         android:name="com.rayxxv.letswatch.ui.profil.ProfileFragment"
         android:label="fragment_profile"
@@ -89,6 +89,6 @@
             app:argType="com.rayxxv.letswatch.data.local.User"
             app:nullable="true"
             android:defaultValue="@null" />
-    </dialog>
+    </fragment>
 
 </navigation>
