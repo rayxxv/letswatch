@@ -7,9 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.rayxxv.letswatch.R
@@ -37,8 +35,8 @@ class DetailMovieFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val movieId = args.movieId
-        var name = "default name"
-        var image = "default image"
+        val name = "default name"
+        val image = "default image"
         val progressDialog = ProgressDialog(requireContext())
 
         viewModel.getAllDetailMovies(movieId)

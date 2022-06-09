@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModel
 import androidx.navigation.fragment.findNavController
 import com.rayxxv.letswatch.R
 import com.rayxxv.letswatch.data.Status
@@ -17,7 +16,7 @@ import com.rayxxv.letswatch.data.pojo.ResultX
 import com.rayxxv.letswatch.databinding.FragmentHomeBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-
+//testingCi
 class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
@@ -79,7 +78,7 @@ class HomeFragment : Fragment() {
         viewModel.getAllPopularSeries()
     }
     private fun updateUser(){
-        binding?.btnProfile.setOnClickListener {
+        binding.btnProfile.setOnClickListener {
             viewModel.getUser(binding?.tvJudul?.text.toString())
             viewModel.getDataUser.observe(viewLifecycleOwner) {
                 if (it != null) {
@@ -105,7 +104,7 @@ class HomeFragment : Fragment() {
         })
 
         adapter.submitData(data)
-        binding?.rvPopularMovie?.adapter = adapter
+        binding.rvPopularMovie.adapter = adapter
     }
 
     private fun showListSeries(data: List<ResultX>?) {
@@ -117,7 +116,7 @@ class HomeFragment : Fragment() {
         })
 
         adapter.submitData(data)
-        binding?.rvPopularSeries?.adapter = adapter
+        binding.rvPopularSeries.adapter = adapter
     }
 
 

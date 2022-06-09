@@ -13,13 +13,12 @@ import android.os.Bundle
 import android.provider.MediaStore
 import android.provider.Settings
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.net.toUri
-import androidx.fragment.app.DialogFragment
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
@@ -31,13 +30,11 @@ import com.karumi.dexter.PermissionToken
 import com.karumi.dexter.listener.PermissionRequest
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener
 import com.rayxxv.letswatch.R
-import com.rayxxv.letswatch.data.Repository
 import com.rayxxv.letswatch.data.local.DataStoreManager
 import com.rayxxv.letswatch.data.local.User
 import com.rayxxv.letswatch.databinding.FragmentProfileBinding
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
 import java.io.File
 import java.io.FileOutputStream
 import java.io.IOException
@@ -137,6 +134,7 @@ class ProfileFragment : Fragment() {
         }
 
     }
+    @Deprecated("Deprecated in Java")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode == Activity.RESULT_OK) {

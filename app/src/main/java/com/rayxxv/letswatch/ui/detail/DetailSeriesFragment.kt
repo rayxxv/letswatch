@@ -7,14 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.rayxxv.letswatch.R
 import com.rayxxv.letswatch.data.Status
 import com.rayxxv.letswatch.data.local.Favorite
-import com.rayxxv.letswatch.databinding.FragmentDetailMovieBinding
 import com.rayxxv.letswatch.databinding.FragmentDetailSeriesBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 

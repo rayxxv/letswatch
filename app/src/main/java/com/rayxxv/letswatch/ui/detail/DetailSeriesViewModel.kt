@@ -7,12 +7,8 @@ import androidx.lifecycle.viewModelScope
 import com.rayxxv.letswatch.data.Repository
 import com.rayxxv.letswatch.data.Resource
 import com.rayxxv.letswatch.data.local.Favorite
-import com.rayxxv.letswatch.data.pojo.Movie
 import com.rayxxv.letswatch.data.pojo.ResultX
 import kotlinx.coroutines.launch
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 class DetailSeriesViewModel(private val repository: Repository) : ViewModel() {
     private val _detailSeries = MutableLiveData<Resource<ResultX>>()
